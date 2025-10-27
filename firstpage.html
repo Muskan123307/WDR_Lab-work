@@ -1,0 +1,86 @@
+<!-- This HTML document demonstrates basic CSS styling concepts and 
+      page layout techniques. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="mystyles.css">
+	<title>Css Example</title>
+
+     <!-- Internal CSS Styling section -->
+	<style>
+
+          /* Reset default margin and padding for full height layout */
+		html,body
+		{
+			margin:0;
+			padding:0;
+			height:100%;
+		}
+          /* Style for paragraph blocks */
+		.paragraph
+		{
+			border-style:solid;
+			border-color:red;
+			width:40%;
+			height:30%;
+			margin:20px;
+			float:left;
+		}
+
+          /* Style for list items inside unordered list */
+		ul li
+		{
+			float:left;
+			padding:10px;
+		}
+
+          /* Style for links inside list items */
+		ul li a
+		{
+			color:white;
+			font-weight:bold;
+			text-decoration: none;
+		}
+
+          /* Hover effect for list items */
+		ul li:hover
+		{
+			background-color:green;
+		}
+	</style>
+</head>
+<body>
+     <!-- Paragraph blocks -->
+	<p class="paragraph">
+		This is first paragraph .<br>
+		This is second line.
+	</p>
+	<p class="paragraph">
+		This is Second paragraph .<br>
+		This is second line.
+	</p>
+
+     <!-- This paragraph has an inline style for background color -->
+	<p class="paragraph" style="background-color:aqua">
+		This is third paragraph .<br>
+		This is second line.
+	</p>
+	<p class="paragraph">
+		This is fourth paragraph .<br>
+		This is second line.
+	</p>
+
+     <!-- Navigation bar created using an unordered list -->
+	<ul style="width:100%;float:left;background-color: blue;list-style-type: none;">
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About us</a></li>
+		<li><a href="#">Contact</a></li>
+		<li><a href="#">News</a></li>
+
+          <!-- The Search link is aligned to the right -->
+		<li style="float:right;padding-right: 50px;"><a href="#">Search</a></li>
+	</ul>
+</body>
+</html>
