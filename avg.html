@@ -1,0 +1,79 @@
+<!-- webpage for calculating average of five numbers -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Average Calculator</title>
+  
+  <!-- Javascript logic section -->
+  <script>
+
+    // function to calculate average of five numbers
+    function calculateAverage() {
+
+      // clear previous results and errors
+      const error = document.getElementById('error');
+      const result = document.getElementById('result');
+      error.textContent = '';
+      result.textContent = '';
+
+      // get input values and validate
+      const nums = [];
+
+      // loop through five input fields
+      for(let i = 1; i <= 5; i++) {
+        const val = document.getElementById('num' + i).value.trim();
+        if(val === '') {
+          error.textContent = 'Please enter all five numbers.';
+          return;
+        }
+        const num = parseFloat(val);
+        if(isNaN(num)) {
+          error.textContent = 'Please enter valid numbers only.';
+          return;
+        }
+        nums.push(num);
+      }
+
+      // calculate average
+      const sum = nums.reduce((acc, curr) => acc + curr, 0);
+      const avg = sum / nums.length;
+
+      // display result
+      result.textContent = 'Average: ' + avg.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+
+  <!-- heading -->
+  <h2>Average of Five Numbers</h2>
+
+  <!-- textfield for input of first number -->
+  <label for="num1">Number 1:</label>
+  <input type="text" id="num1" placeholder="Enter number 1"><br><br>
+
+  <!-- textfield for input of second number -->
+  <label for="num2">Number 2:</label>
+  <input type="text" id="num2" placeholder="Enter number 2"><br><br>
+
+  <!-- textfield for input of third number  -->
+  <label for="num3">Number 3:</label>
+  <input type="text" id="num3" placeholder="Enter number 3"><br><br>
+
+  <!-- texfield for input of fourth number -->
+  <label for="num4">Number 4:</label>
+  <input type="text" id="num4" placeholder="Enter number 4"><br><br>
+
+  <!-- textfield for input of fifth number -->
+  <label for="num5">Number 5:</label>
+  <input type="text" id="num5" placeholder="Enter number 5"><br><br>
+
+  <!-- button to calculate average -->
+  <button onclick="calculateAverage()">Calculate Average</button>
+
+  <!-- display error and result here -->
+  <p id="error" style="color:red;"></p>
+  <p id="result"></p>
+</body>
+</html>
