@@ -1,0 +1,71 @@
+<!-- webpage for calculating simple interest -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Interest Calculator</title>
+
+  <!-- Javascript logic section -->
+  <script>
+
+    // function to calculate simple interest
+    function calculateSimpleInterest() {
+
+      // clear previous results and errors
+      const error = document.getElementById('error');
+      const result = document.getElementById('result');
+      error.textContent = '';
+      result.textContent = '';
+
+      // get input values and validate
+      const P = parseFloat(document.getElementById('principal').value.trim());
+      const R = parseFloat(document.getElementById('rate').value.trim());
+      const T = parseFloat(document.getElementById('time').value.trim());
+
+      // validation
+      if (isNaN(P) || P <= 0) {
+        error.textContent = "Please enter a valid principal amount greater than 0.";
+        return;
+      }
+      if (isNaN(R) || R < 0) {
+        error.textContent = "Please enter a valid interest rate (0 or greater).";
+        return;
+      }
+      if (isNaN(T) || T <= 0) {
+        error.textContent = "Please enter a valid time duration greater than 0.";
+        return;
+      }
+
+      // calculate simple interest
+      const SI = (P * R * T) / 100;
+      
+      // display result
+      result.textContent = "Simple Interest: " + SI.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+
+  <!-- heading -->
+  <h2>Simple Interest Calculator</h2>
+
+  <!-- textfield for input of principal -->
+  <label for="principal">Principal Amount (P):</label>
+  <input type="text" id="principal" placeholder="Enter principal amount"><br><br>
+
+  <!-- textfield for input of interest rate -->
+  <label for="rate">Annual Interest Rate (R %) :</label>
+  <input type="text" id="rate" placeholder="Enter interest rate (%)"><br><br>
+
+  <!-- textfield for input of time duration -->
+  <label for="time">Time (T in years):</label>
+  <input type="text" id="time" placeholder="Enter time in years"><br><br>
+
+  <!-- button to calculate simple interest -->
+  <button onclick="calculateSimpleInterest()">Calculate Simple Interest</button>
+
+  <!-- display error and result here -->
+  <p id="error"></p>
+  <p id="result"></p>
+</body>
+</html>
