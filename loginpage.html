@@ -1,0 +1,92 @@
+<!--Simple Login Form using HTML & CSS-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>--Login Page</title>
+
+     <!-- CSS Styling Section -->
+      <style>
+          
+          /* Basic page setup */
+          body{
+               margin: 0;
+               background-color: #f5f5f5;
+               font-family: Arial, sans-serif;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               height: 100vh;
+          }
+
+          /* Box that contains the form */
+          .loginbox{
+               background-color: #ffff;
+               padding: 40px;
+               border-radius: 10px;
+               box-shadow: 0 0 10px rgba(0,0,0,0.1);
+               width: 300px;
+               text-align: center;
+          }
+
+          /* Heading(Login) */
+          h2{
+               color: #2f3bbd;
+               margin-bottom: 30px;
+          }
+
+          /* Input boxes */
+          input{
+               width: 100%;
+               padding: 10px;
+               margin: 10px 0;
+               border: none;
+               border-bottom: 2px solid #4d56b6; /* underline style */
+               outline: none;
+               font-size: 14px;
+          }
+
+          /* Placeholder text style */
+          ::placeholder{
+               color: #999;
+               font-weight: bold;
+          }
+
+          /* Submit button */
+          button {
+               background-color: #2f3bbd; /* blue background */
+               color: white;
+               padding: 12px 0;
+               width: 100%;
+               border: none;
+               border-radius: 5px;
+               font-size: 16px;
+               font-weight: bold;
+               cursor: pointer;
+               margin-top: 15px;
+          }
+      </style>
+
+</head>
+<body>
+     <!-- Main login-box -->
+     <div class="loginbox">
+          
+          <!-- Title -->
+          <h2>Login</h2>
+
+          <!-- Input for username -->
+          <input type="text" placeholder="User name or id"> <br><br>
+
+          <!-- Input for Password -->
+           <input type="password" placeholder="Password"> <br><br>
+
+           <!-- Input for Date of Birth -->
+            <input type="text" placeholder="Date of Birth"> <br><br>
+
+            <!-- Submit button -->
+             <button type="submit">Submit</button>
+     </div>
+</body>
+</html>
