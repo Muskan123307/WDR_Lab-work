@@ -1,0 +1,104 @@
+<!-- To-Do App -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To do List</title>
+	<script>
+		//creating a blank array for storing tasks
+		var task_array = [];
+		/*--- Creating a function to insert element into array ---*/
+		function addtask()
+		{
+			//fetching data from textfield
+			data = document.getElementById('task').value
+			if(data!='')
+			{
+				//setting error_div message as blank
+				document.getElementById('error_msg').innerText="";
+				task_index = task_array.length;
+				/*--- inserting element into the array ---*/
+				task_array.push(data);
+				//displaying data in list
+				displayTask(data,task_index);
+			}
+			else
+			{
+				//displaying error message in div
+				document.getElementById('error_msg').innerText="Blank text not allowed";
+				//setting color in red
+				document.getElementById('error_msg').style.color="red";
+			}
+			//setting textfield as blank
+			document.getElementById('task').value = "";
+		}
+		/*--- function to display data in list ----*/
+		function displayTask(task_data,index)
+		{
+			//creating li tag dynamically
+			var listitem = document.createElement("li");
+			//creating id for list item
+			listitem.id = "list-".concat(index);
+			//setting text in li
+			listitem.textContent = task_data;
+			// creating a button to display mark as complete
+			var complete_button = document.createElement("button");
+			//creating id for complete_button
+			complete_button.id = "complete-".concat(index);
+			//setting text in button
+			complete_button.textContent = "Mark As Complete";
+			//setting function on click event
+			complete_button.onclick = function()
+			{
+				// fetching id of the button
+				var btn_id = this.id
+				//splitting the btn_id string based on '-'
+				var data = btn_id.split('-');
+				// id of the list item 
+				li_id = "list-"+data[1];
+				//setting text color of li tag as green
+				document.getElementById(li_id).style.color="green";
+			}
+			// creating a button to display delete
+			var delete_button = document.createElement("button");
+			//creating id for complete_button
+			delete_button.id = "delete-".concat(index);
+			//setting text in button
+			delete_button.textContent = "Delete";
+			//setting function on click event
+			delete_button.onclick = function()
+			{
+				// fetching id of the button
+				var btn_id = this.id
+				//splitting the btn_id string based on '-'
+				var data = btn_id.split('-');
+				// id of the list item 
+				li_id = "list-"+data[1];
+				//deleting element from array
+				delete task_array[data[1]];
+				//deleting li
+				document.getElementById(li_id).remove();
+				console.log(task_array);
+			}
+			//appending button to the listitem
+			listitem.appendChild(complete_button);
+			listitem.appendChild(delete_button);
+			//append li tag in ul tag whose id is tasklist
+			document.getElementById('tasklist').appendChild(listitem);
+		}
+	</script>
+</head>
+<body>
+	<!-- Creating a textfield for input of task -->
+	<input type="text" id="task" placeholder="Enter task" required>
+
+	<!-- Creating a button to add the task -->
+	<input type="button" value="Add Task" onclick="addtask()">
+	<br>
+	<div id="error_msg"></div>
+	<br><br>
+	<!-- creating blank unordered list -->
+	<ul id="tasklist"> </ul>
+</body>
+</html>
